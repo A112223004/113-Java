@@ -15,16 +15,16 @@ public class Student {
         this.name = name;
     }
 
-    public String getStudentID(){
-        return studentID;
-    }
-
     public String getName(){
         return name;
     }
 
     public void setName(String name){
         this.name = name;
+    }
+
+    public String getStudentID(){
+        return studentID;
     }
 
     public void printData() {
