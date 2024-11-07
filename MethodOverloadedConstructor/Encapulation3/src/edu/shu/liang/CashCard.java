@@ -50,7 +50,7 @@ public class CashCard {
 
     public void setBonus(int bonus){
         if(bonus >= 0){
-            this.bonus;
+            this.bonus = bonus;
         }
         else {
             System.out.println("格式不符，保持原值");
@@ -62,8 +62,8 @@ public class CashCard {
 
     //儲值
     public void store(int money){
-
-        topUp();
+        if (money > 0) {
+        topUp(money);
 
         }
         else{
@@ -71,17 +71,21 @@ public class CashCard {
         }
     }
 
-    public void store(String number, int money){
-        if(this.number.equals(number)){
-
-                topUp();
+public void store(String number, int money){
+    if(this.number.equals(number)){
+        if (money > 0) {
+            topUp(money);  // 呼叫 topUp()
+        } else {
+            System.out.println("儲值金額為負，來亂的!");
         }
-        else{
-                System.out.println("卡號不符");
-            }
     }
+    else{
+        System.out.println("卡號不符");
+    }
+}
 
-    private void topUp (int money){
+
+private void topUp (int money){
         if(money > 0){
             this.balance += money;
             if( money >= 1000){
@@ -115,7 +119,7 @@ public class CashCard {
         if(bonus > 0 && this.bonus >= bonus){
 
             this.bonus -= bonus;
-            setBalance(this.balance + bonus * BOUNSCASH);
+            setBalance(this.balance + bonus * BONUSCASH);
         }
         else {
             System.out.println("點數不足");

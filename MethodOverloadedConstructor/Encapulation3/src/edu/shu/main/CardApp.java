@@ -37,7 +37,7 @@ public class CardApp {
             System.out.printf("明細(%s, %d, %d)%n:",cards[i].getNumber(), cards[i].getBalance(), cards[i].getBonus());
         }
 
-        cards[1].charge("A002", 500);
+        cards[1].charge("A002", 500, 2);
         System.out.printf("明細(%s, %d, %d)%n:",
                 cards[1].getNumber(), cards[1].getBalance(), cards[1].getBonus());
         cards[1].charge("A002", 100, 1);
