@@ -18,7 +18,7 @@ public class Book implements Borrowable{
     }
 
     @Override
-    public boolean isBorrowed(){
+    public Boolean isBorrowed(){
         return isBorrowed;
     }
 
@@ -26,13 +26,12 @@ public class Book implements Borrowable{
     public void borrow(){
         if (!isBorrowed){
             isBorrowed = true;
+            System.out.println("您已歸還" + title + " 作者 " + author );
+        }
+        else {
+            System.out.println(title + "此書尚未被借閱");
         }
     }
-
-
-
-
-
 
     @Override
     public void returnItem(){
@@ -42,14 +41,6 @@ public class Book implements Borrowable{
         }
         else {
             System.out.println(title + "此書為被借閱");
-        }
-    }
-
-    @Override
-    public void returnItem(){
-        if (isBorrowed){
-            isBorrowed = false;
-            System.out.println(?);
         }
     }
 
