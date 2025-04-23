@@ -58,6 +58,33 @@ namespace A112223004_DS_Library
 
             return string.Join(", ", arr);
         }
+
+        public static T[] ParserStringBySplitter<T>(string input, char splitter = ',')
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return Array.Empty<T>();
+
+            string[] parts = input.Split(splitter);
+
+            List<T> result = new List<T>();
+
+            foreach (var part in parts)
+            {
+                try
+                {
+                    // 去除每個元素的多餘空白並轉型
+                    T value = (T)Convert.ChangeType(part.Trim(), typeof(T));
+                    result.Add(value);
+                }
+                catch
+                {
+                    // 轉型失敗就跳過或可拋出例外（視需求）
+                    // throw new FormatException($"無法將 '{part}' 轉為 {typeof(T).Name}");
+                }
+            }
+
+            return result.ToArray();
+        }
     }
 
 } //End of namespace

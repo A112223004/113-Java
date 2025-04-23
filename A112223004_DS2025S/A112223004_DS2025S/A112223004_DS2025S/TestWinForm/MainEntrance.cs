@@ -198,8 +198,8 @@ namespace TestWinForm
             else if (rbnString.Checked)
             {
                 tbxBefore.Text = "[" + string.Join(", ", data3) + "]";
-                A112223004_DS_Library.DS_Sorting.selectionSort(data3, out dataTarget3);
-                tbxAfter.Text = "[" + string.Join(", ", dataTarget3) + "]";
+                A112223004_DS_Library.DS_Sorting.selectionSort(data3, out dataTarget);
+                tbxAfter.Text = "[" + string.Join(", ", dataTarget) + "]";
             }
         }
         private void btnMergeSort_Click(object sender, EventArgs e)

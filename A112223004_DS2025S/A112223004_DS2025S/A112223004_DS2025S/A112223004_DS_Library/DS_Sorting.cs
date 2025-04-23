@@ -64,6 +64,54 @@ namespace A112223004_DS_Library
 
             }
         } //End of selectionSort
+
+        //mergeSort
+        public static T[] mergeSort<T>(T[] array, bool ascending = true) where T : IComparable<T>
+        {
+            if (array.Length <= 1)
+                return (T[])array.Clone();
+
+            int mid = array.Length / 2;
+            T[] left = new T[mid];
+            T[] right = new T[array.Length - mid];
+            Array.Copy(array, 0, left, 0, mid);
+            Array.Copy(array, mid, right, 0, array.Length - mid);
+
+            left = mergeSort(left, ascending);
+            right = mergeSort(right, ascending);
+
+            return merge(left, right, ascending);
+        }
+
+        //===== Merge Sort (In-place version using ref) =====//
+        public static void mergeSortInPlace<T>(ref T[] array, bool ascending = true) where T : IComparable<T>
+        {
+            array = mergeSort(array, ascending); // Replaces the array with the sorted one
+        }
+
+        //===== Merge Helper =====//
+        private static T[] merge<T>(T[] left, T[] right, bool ascending) where T : IComparable<T>
+        {
+            T[] result = new T[left.Length + right.Length];
+            int i = 0, j = 0, k = 0;
+
+            while (i < left.Length && j < right.Length)
+            {
+                int comparison = left[i].CompareTo(right[j]);
+                bool condition = ascending ? comparison <= 0 : comparison >= 0;
+
+                result[k++] = condition ? left[i++] : right[j++];
+            }
+
+            while (i < left.Length)
+                result[k++] = left[i++];
+            while (j < right.Length)
+                result[k++] = right[j++];
+
+            return result;
+        }
+
+
     } //End of class
 } //End of namespace
 
