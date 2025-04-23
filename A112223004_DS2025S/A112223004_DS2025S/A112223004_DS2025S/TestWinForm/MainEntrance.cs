@@ -198,7 +198,7 @@ namespace TestWinForm
             else if (rbnString.Checked)
             {
                 tbxBefore.Text = "[" + string.Join(", ", data3) + "]";
-                A112223004_DS_Library.DS_Sorting.selectionSort(data3, out dataTarget);
+                A112223004_DS_Library.DS_Sorting.selectionSort(data3, out var dataTarget);
                 tbxAfter.Text = "[" + string.Join(", ", dataTarget) + "]";
             }
         }
@@ -229,8 +229,9 @@ namespace TestWinForm
             else if (rbnString.Checked)
             {
                 tbxBefore.Text = "[" + string.Join(", ", data3) + "]";
-                A112223004_DS_Library.DS_Sorting.selectionSort(data3, out dataTarget3);
-                tbxAfter.Text = "[" + string.Join(", ", dataTarget3) + "]";
+                A112223004_DS_Library.DS_Sorting.selectionSort(data3, out var dataTarget);
+                tbxAfter.Text = "[" + string.Join(", ", dataTarget) + "]";
+
             }
         }
 
@@ -239,7 +240,7 @@ namespace TestWinForm
 
 
 
-#endregion
+
 
         #region//------ linked list : sll, dll, poly
         #region//----- Linled list type change
@@ -781,6 +782,9 @@ namespace TestWinForm
             }
         }
 
-        
+        private void Origianl_lbl_Click(object sender, EventArgs e)
+        {
+
+        }
     } // End of class
 } //End of namespace
